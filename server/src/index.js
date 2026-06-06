@@ -3,6 +3,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const authRoutes = require('./routes/auth');
+const roadmapRoutes = require('./routes/roadmap');
 
 const app = express();
 
@@ -12,8 +13,9 @@ app.use(express.json());
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/roadmap', roadmapRoutes);
 
-// Health check route
+// Health check
 app.get('/api/health', (req, res) => {
   res.json({ 
     status: 'ok', 

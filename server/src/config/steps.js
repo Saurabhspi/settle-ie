@@ -1,0 +1,98 @@
+const STEPS = [
+  {
+    key: 'pps_number',
+    title: 'Apply for your PPS number',
+    description: 'Your Personal Public Service number is required for almost everything in Ireland — tax, social welfare, health services, and opening a bank account. Apply at your local Intreo office.',
+    order_index: 1,
+    category: 'identity',
+    gov_link: 'https://www.citizensinformation.ie/en/social-welfare/irish-social-welfare-system/personal-public-service-number/',
+    appliesTo: null,
+  },
+  {
+    key: 'irp_card',
+    title: 'Register for your IRP card',
+    description: 'Your Irish Residence Permit (IRP) card proves your legal right to live and work in Ireland. You must register within 90 days of arrival at your local immigration office.',
+    order_index: 2,
+    category: 'immigration',
+    gov_link: 'https://www.irishimmigration.ie',
+    due_days_from_arrival: 90,
+    appliesTo: {
+      nationalities: ['non-eu'],
+    },
+  },
+  {
+    key: 'leap_card',
+    title: 'Get a Leap card for public transport',
+    description: 'A Leap card gives you discounted fares on Dublin Bus, Luas, DART, and intercity trains. Pick one up at any Centra, Spar, or Leap top-up point and register it online.',
+    order_index: 3,
+    category: 'transport',
+    appliesTo: null,
+  },
+  {
+    key: 'bank_account',
+    title: 'Open an Irish bank account',
+    description: 'You need a bank account to receive your salary. Bank of Ireland, AIB, and N26 are the most common choices. N26 is the easiest — fully digital, no branch visit required.',
+    order_index: 4,
+    category: 'finance',
+    appliesTo: null,
+  },
+  {
+    key: 'tax_registration',
+    title: 'Register with Revenue for tax',
+    description: 'Register as a new employee on Revenue myAccount portal to get your tax credits and make sure you are on the correct tax band from day one. Without this you will be emergency taxed.',
+    order_index: 5,
+    category: 'finance',
+    gov_link: 'https://www.revenue.ie',
+    appliesTo: {
+      employment: ['employed', 'self_employed'],
+    },
+  },
+  {
+    key: 'medical_card',
+    title: 'Apply for a medical card',
+    description: 'If your income is below a certain threshold you qualify for a free medical card covering GP visits, hospital stays, and prescriptions. Otherwise apply for a GP visit card.',
+    order_index: 6,
+    category: 'health',
+    gov_link: 'https://www.citizensinformation.ie',
+    appliesTo: null,
+  },
+  {
+    key: 'find_gp',
+    title: 'Register with a local GP',
+    description: 'Finding and registering with a local GP (doctor) is important to do early — many GPs have waiting lists. Use the HSE GP finder tool to find one accepting new patients near you.',
+    order_index: 7,
+    category: 'health',
+    gov_link: 'https://www.hse.ie',
+    appliesTo: null,
+  },
+  {
+    key: 'driving_licence',
+    title: 'Convert your driving licence',
+    description: 'If you have a valid foreign driving licence you may be able to exchange it for an Irish one without sitting a test. Apply at your local NDLS centre.',
+    order_index: 8,
+    category: 'transport',
+    appliesTo: {
+      has_driving_licence: true,
+    },
+  },
+  {
+    key: 'home_insurance',
+    title: 'Set up home and renters insurance',
+    description: 'If you are renting, contents insurance protects your belongings. Many landlords require it. Compare prices on bonkers.ie or insuremyhouse.ie.',
+    order_index: 9,
+    category: 'finance',
+    appliesTo: null,
+  },
+  {
+    key: 'school_enrolment',
+    title: 'Enrol your children in school',
+    description: 'Contact your local school directly or use the school finder on the Department of Education website. Bring birth certificates, passport photos, and proof of address.',
+    order_index: 10,
+    category: 'family',
+    appliesTo: {
+      has_children: true,
+    },
+  },
+];
+
+module.exports = STEPS;

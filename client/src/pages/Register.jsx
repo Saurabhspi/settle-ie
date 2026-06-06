@@ -22,7 +22,7 @@ export default function Register() {
     try {
       const res = await registerUser(form);
       login(res.data.user, res.data.token);
-      navigate('/dashboard');
+      navigate('/onboarding');
     } catch (err) {
       setError(err.response?.data?.error || 'Something went wrong');
     } finally {

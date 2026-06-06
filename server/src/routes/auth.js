@@ -108,7 +108,9 @@ router.post('/login', async (req, res) => {
 router.get('/me', require('../middleware/auth'), async (req, res) => {
   try {
     const result = await db.query(
-      'SELECT id, email, full_name, nationality, visa_type, arrival_date FROM users WHERE id = $1',
+      `SELECT id, email, full_name, nationality, visa_type, 
+              arrival_date, has_onboarded 
+       FROM users WHERE id = $1`,
       [req.user.id]
     );
     res.json(result.rows[0]);
