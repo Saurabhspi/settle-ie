@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Onboarding from './pages/Onboarding';
+import Assistant from './pages/Assistant';
 
 const ProtectedRoute = ({ children }) => {
   const { token } = useAuth();
@@ -16,14 +17,13 @@ function AppRoutes() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/onboarding" element={
-        <ProtectedRoute>
-          <Onboarding />
-        </ProtectedRoute>
+        <ProtectedRoute><Onboarding /></ProtectedRoute>
       } />
       <Route path="/dashboard" element={
-        <ProtectedRoute>
-          <Dashboard />
-        </ProtectedRoute>
+        <ProtectedRoute><Dashboard /></ProtectedRoute>
+      } />
+      <Route path="/assistant" element={
+        <ProtectedRoute><Assistant /></ProtectedRoute>
       } />
       <Route path="/" element={<Navigate to="/dashboard" />} />
     </Routes>

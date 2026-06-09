@@ -94,6 +94,12 @@ export default function Dashboard() {
       <nav className="bg-white border-b border-gray-100 px-6 py-4 flex justify-between items-center sticky top-0 z-10">
         <h1 className="text-lg font-semibold text-gray-900">Settle.ie</h1>
         <div className="flex items-center gap-4">
+          <button
+            onClick={() => navigate('/assistant')}
+            className="text-sm text-emerald-600 hover:text-emerald-700 font-medium"
+          >
+            Ask Fáilte
+          </button>
           <span className="text-sm text-gray-500">
             👋 {user?.full_name}
           </span>
@@ -105,7 +111,6 @@ export default function Dashboard() {
           </button>
         </div>
       </nav>
-
       <div className="max-w-3xl mx-auto px-4 py-8">
 
         {/* Progress card */}
@@ -148,8 +153,8 @@ export default function Dashboard() {
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 className={`text-xs px-4 py-2 rounded-full font-medium capitalize transition-all ${activeCategory === cat
-                    ? 'bg-emerald-600 text-white'
-                    : 'bg-white border border-gray-200 text-gray-600 hover:border-gray-300'
+                  ? 'bg-emerald-600 text-white'
+                  : 'bg-white border border-gray-200 text-gray-600 hover:border-gray-300'
                   }`}
               >
                 {cat}
