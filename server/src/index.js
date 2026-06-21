@@ -6,6 +6,7 @@ const authRoutes = require('./routes/auth');
 const roadmapRoutes = require('./routes/roadmap');
 const assistantRoutes = require('./routes/assistant');
 const documentRoutes = require('./routes/documents');
+const { startReminderJob } = require('./cron/reminders');
 
 const app = express();
 
@@ -26,10 +27,10 @@ db.query('SELECT NOW()')
   .then(() => console.log('Database connected successfully ✅'))
   .catch((err) => console.error('Database connection failed ❌', err));
 
+// Start daily reminder cron job
+startReminderJob();
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
-
-
-

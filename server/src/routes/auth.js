@@ -2,7 +2,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const db = require('../db');
-
+const { sendWelcomeEmail } = require('../services/emailService');
 const router = express.Router();
 
 // POST /api/auth/register
@@ -48,6 +48,10 @@ router.post('/register', async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: '7d' }
     );
+// Send welcome email (don't await — let it send in background)
+sendWelcomeEmail(user.email, user.full_name).catch(err => 
+  console.error('Welcome email failed:', err.message)
+);
 
     res.status(201).json({ token, user });
   } catch (err) {
