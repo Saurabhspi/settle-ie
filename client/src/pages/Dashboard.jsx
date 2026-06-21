@@ -95,6 +95,12 @@ export default function Dashboard() {
         <h1 className="text-lg font-semibold text-gray-900">Settle.ie</h1>
         <div className="flex items-center gap-4">
           <button
+            onClick={() => navigate('/documents')}
+            className="text-sm text-emerald-600 hover:text-emerald-700 font-medium"
+          >
+            Documents
+          </button>
+          <button
             onClick={() => navigate('/assistant')}
             className="text-sm text-emerald-600 hover:text-emerald-700 font-medium"
           >
@@ -110,8 +116,7 @@ export default function Dashboard() {
             Logout
           </button>
         </div>
-      </nav>
-      <div className="max-w-3xl mx-auto px-4 py-8">
+      </nav><div className="max-w-3xl mx-auto px-4 py-8">
 
         {/* Progress card */}
         <div className="bg-white rounded-2xl border border-gray-100 p-6 mb-6">

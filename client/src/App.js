@@ -5,6 +5,7 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Onboarding from './pages/Onboarding';
 import Assistant from './pages/Assistant';
+import Documents from './pages/Documents';
 
 const ProtectedRoute = ({ children }) => {
   const { token } = useAuth();
@@ -24,6 +25,9 @@ function AppRoutes() {
       } />
       <Route path="/assistant" element={
         <ProtectedRoute><Assistant /></ProtectedRoute>
+      } />
+      <Route path="/documents" element={
+        <ProtectedRoute><Documents /></ProtectedRoute>
       } />
       <Route path="/" element={<Navigate to="/dashboard" />} />
     </Routes>
