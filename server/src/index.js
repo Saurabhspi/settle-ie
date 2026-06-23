@@ -10,7 +10,7 @@ const { startReminderJob } = require('./cron/reminders');
 
 const app = express();
 
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: '*' }));
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
@@ -27,7 +27,6 @@ db.query('SELECT NOW()')
   .then(() => console.log('Database connected successfully ✅'))
   .catch((err) => console.error('Database connection failed ❌', err));
 
-// Start daily reminder cron job
 startReminderJob();
 
 const PORT = process.env.PORT || 5000;
