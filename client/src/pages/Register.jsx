@@ -31,43 +31,55 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center px-4"
+      style={{ background: '#F7F3EB' }}>
+      <div style={{
+        background: '#fff', borderRadius: '20px', padding: '40px',
+        width: '100%', maxWidth: '420px', border: '0.5px solid #DDD8CC'
+      }}>
 
         {/* Logo */}
         <div className="mb-8 text-center">
-          <h1 className="text-2xl font-semibold text-gray-900">Settle.ie</h1>
-          <p className="text-gray-500 text-sm mt-1">Your Irish relocation guide</p>
+          <h1 style={{ color: '#1A3D2B', fontSize: '22px', fontWeight: 500, margin: 0 }}>
+            Settle.ie
+          </h1>
+          <p style={{ color: '#7A8C7E', fontSize: '13px', margin: '4px 0 0' }}>
+            Your Irish relocation guide
+          </p>
         </div>
 
-        <h2 className="text-xl font-medium text-gray-800 mb-6">Create your account</h2>
+        <h2 style={{
+          color: '#1A3D2B', fontSize: '18px', fontWeight: 500,
+          margin: '0 0 24px'
+        }}>
+          Welcome back
+        </h2>
 
-        {/* Error message */}
         {error && (
-          <div className="bg-red-50 text-red-600 text-sm px-4 py-3 rounded-lg mb-4">
+          <div style={{
+            background: '#FEF2F2', color: '#991B1B', fontSize: '13px',
+            padding: '12px 16px', borderRadius: '10px', marginBottom: '16px'
+          }}>
             {error}
           </div>
         )}
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm text-gray-600 mb-1">Full name</label>
-            <input
-              type="text"
-              placeholder="Saurabh Anand"
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-              value={form.full_name}
-              onChange={e => setForm({ ...form, full_name: e.target.value })}
-              required
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm text-gray-600 mb-1">Email address</label>
+            <label style={{
+              display: 'block', fontSize: '13px', color: '#5A6B5E',
+              marginBottom: '6px'
+            }}>
+              Email address
+            </label>
             <input
               type="email"
               placeholder="you@example.com"
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              style={{
+                width: '100%', border: '0.5px solid #DDD8CC', borderRadius: '10px',
+                padding: '11px 14px', fontSize: '13px', outline: 'none',
+                background: '#FDFBF7', boxSizing: 'border-box'
+              }}
               value={form.email}
               onChange={e => setForm({ ...form, email: e.target.value })}
               required
@@ -75,11 +87,20 @@ export default function Register() {
           </div>
 
           <div>
-            <label className="block text-sm text-gray-600 mb-1">Password</label>
+            <label style={{
+              display: 'block', fontSize: '13px', color: '#5A6B5E',
+              marginBottom: '6px'
+            }}>
+              Password
+            </label>
             <input
               type="password"
-              placeholder="At least 6 characters"
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              placeholder="Your password"
+              style={{
+                width: '100%', border: '0.5px solid #DDD8CC', borderRadius: '10px',
+                padding: '11px 14px', fontSize: '13px', outline: 'none',
+                background: '#FDFBF7', boxSizing: 'border-box'
+              }}
               value={form.password}
               onChange={e => setForm({ ...form, password: e.target.value })}
               required
@@ -89,16 +110,26 @@ export default function Register() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-xl text-sm font-medium transition-colors disabled:opacity-50"
+            style={{
+              width: '100%', background: '#1A3D2B', color: '#F7F3EB',
+              padding: '12px', borderRadius: '10px', fontSize: '13px', fontWeight: 500,
+              border: 'none', cursor: 'pointer', opacity: loading ? 0.6 : 1
+            }}
           >
-            {loading ? 'Creating account...' : 'Create account'}
+            {loading ? 'Starting up server, please wait...' : 'Sign in'}
           </button>
         </form>
 
-        <p className="text-center text-sm text-gray-500 mt-6">
-          Already have an account?{' '}
-          <Link to="/login" className="text-emerald-600 hover:underline font-medium">
-            Sign in
+        <p style={{
+          textAlign: 'center', fontSize: '13px', color: '#7A8C7E',
+          marginTop: '24px'
+        }}>
+          Don't have an account?{' '}
+          <Link to="/register" style={{
+            color: '#0F6E56', fontWeight: 500,
+            textDecoration: 'none'
+          }}>
+            Create one
           </Link>
         </p>
       </div>
