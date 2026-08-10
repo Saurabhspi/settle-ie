@@ -1,5 +1,7 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import PageTransition from './components/PageTransition';
 import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -14,24 +16,42 @@ const ProtectedRoute = ({ children }) => {
 };
 
 function AppRoutes() {
+  const location = useLocation();
+
   return (
-    <Routes>
-      <Route path="/" element={<Landing />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/onboarding" element={
-        <ProtectedRoute><Onboarding /></ProtectedRoute>
-      } />
-      <Route path="/dashboard" element={
-        <ProtectedRoute><Dashboard /></ProtectedRoute>
-      } />
-      <Route path="/assistant" element={
-        <ProtectedRoute><Assistant /></ProtectedRoute>
-      } />
-      <Route path="/documents" element={
-        <ProtectedRoute><Documents /></ProtectedRoute>
-      } />
-    </Routes>
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={
+          <PageTransition><Landing /></PageTransition>
+        } />
+        <Route path="/login" element={
+          <PageTransition><Login /></PageTransition>
+        } />
+        <Route path="/register" element={
+          <PageTransition><Register /></PageTransition>
+        } />
+        <Route path="/onboarding" element={
+          <ProtectedRoute>
+            <PageTransition><Onboarding /></PageTransition>
+          </ProtectedRoute>
+        } />
+        <Route path="/dashboard" element={
+          <ProtectedRoute>
+            <PageTransition><Dashboard /></PageTransition>
+          </ProtectedRoute>
+        } />
+        <Route path="/assistant" element={
+          <ProtectedRoute>
+            <PageTransition><Assistant /></PageTransition>
+          </ProtectedRoute>
+        } />
+        <Route path="/documents" element={
+          <ProtectedRoute>
+            <PageTransition><Documents /></PageTransition>
+          </ProtectedRoute>
+        } />
+      </Routes>
+    </AnimatePresence>
   );
 }
 

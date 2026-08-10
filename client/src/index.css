@@ -24,3 +24,7 @@ body {
   background: #B8C4BC;
   border-radius: 3px;
 }
+
+html {
+  scroll-behavior: smooth;
+}

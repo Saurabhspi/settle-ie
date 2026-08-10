@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const features = [
   {
@@ -64,15 +65,35 @@ const faqs = [
   },
 ];
 
+// Reusable animation variants
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const stagger = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
 export default function Landing() {
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen" style={{ background: '#F7F3EB' }}>
 
-      {/* Navbar */}
-      <nav style={{ background: '#F7F3EB', borderBottom: '0.5px solid #DDD8CC' }}
-        className="px-6 py-4 flex justify-between items-center sticky top-0 z-50">
+      {/* Navbar — slides down on load */}
+      <motion.nav
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, ease: 'easeOut' }}
+        style={{ background: '#F7F3EB', borderBottom: '0.5px solid #DDD8CC' }}
+        className="px-6 py-4 flex justify-between items-center sticky top-0 z-50"
+      >
         <div className="flex items-center gap-2">
           <span style={{ color: '#1A3D2B', fontSize: '18px', fontWeight: 500 }}>
             Settle.ie
@@ -93,295 +114,431 @@ export default function Landing() {
           </a>
         </div>
         <div className="flex items-center gap-3">
-          <button
+          <motion.button
             onClick={() => navigate('/login')}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.97 }}
             style={{
               color: '#1A3D2B', fontSize: '13px', border: '0.5px solid #B8C4BC',
-              padding: '7px 16px', borderRadius: '8px', background: 'transparent'
+              padding: '7px 16px', borderRadius: '8px', background: 'transparent',
+              cursor: 'pointer',
             }}
-            className="hover:bg-cream-200 transition-colors"
           >
             Sign in
-          </button>
-          <button
+          </motion.button>
+          <motion.button
             onClick={() => navigate('/register')}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.97 }}
             style={{
               background: '#1A3D2B', color: '#F7F3EB', fontSize: '13px',
-              padding: '7px 16px', borderRadius: '8px', border: 'none'
+              padding: '7px 16px', borderRadius: '8px', border: 'none',
+              cursor: 'pointer',
             }}
-            className="hover:opacity-90 transition-opacity"
           >
             Get started free
-          </button>
+          </motion.button>
         </div>
-      </nav>
+      </motion.nav>
 
-      {/* Hero */}
+      {/* Hero — fades in on load */}
       <section className="px-6 py-20 text-center max-w-4xl mx-auto">
-        <div style={{
-          background: '#1A3D2B', color: '#F7F3EB', fontSize: '11px',
-          padding: '5px 14px', borderRadius: '20px', display: 'inline-block',
-          marginBottom: '20px', fontWeight: 500, letterSpacing: '0.05em'
-        }}>
-          FREE · AI-POWERED · MADE FOR IRELAND
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <div style={{
+            background: '#1A3D2B', color: '#F7F3EB', fontSize: '11px',
+            padding: '5px 14px', borderRadius: '20px', display: 'inline-block',
+            marginBottom: '20px', fontWeight: 500, letterSpacing: '0.05em',
+          }}>
+            FREE · AI-POWERED · MADE FOR IRELAND
+          </div>
+        </motion.div>
 
-        <h1 style={{
-          color: '#1A3D2B', fontSize: '48px', fontWeight: 500,
-          lineHeight: 1.15, margin: '0 0 20px'
-        }}>
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          style={{
+            color: '#1A3D2B', fontSize: '48px', fontWeight: 500,
+            lineHeight: 1.15, margin: '0 0 20px',
+          }}
+        >
           Moving to Ireland?<br />
           <span style={{ color: '#0F6E56' }}>We'll guide every step.</span>
-        </h1>
+        </motion.h1>
 
-        <p style={{
-          color: '#5A6B5E', fontSize: '16px', lineHeight: 1.7,
-          margin: '0 auto 32px', maxWidth: '520px'
-        }}>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          style={{
+            color: '#5A6B5E', fontSize: '16px', lineHeight: 1.7,
+            margin: '0 auto 32px', maxWidth: '520px',
+          }}
+        >
           Settle.ie gives you a personalised relocation roadmap, an AI assistant
           that answers questions about Irish bureaucracy, and a secure document
           vault — all completely free.
-        </p>
+        </motion.p>
 
-        <div className="flex gap-3 justify-center flex-wrap">
-          <button
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="flex gap-3 justify-center flex-wrap"
+        >
+          <motion.button
             onClick={() => navigate('/register')}
+            whileHover={{ scale: 1.03, boxShadow: '0 8px 24px rgba(26,61,43,0.2)' }}
+            whileTap={{ scale: 0.97 }}
             style={{
               background: '#1A3D2B', color: '#F7F3EB', fontSize: '14px',
               padding: '12px 28px', borderRadius: '10px', border: 'none',
-              fontWeight: 500, cursor: 'pointer'
+              fontWeight: 500, cursor: 'pointer',
             }}
-            className="hover:opacity-90 transition-opacity"
           >
             Build my roadmap — it's free
-          </button>
-          <button
+          </motion.button>
+          <motion.button
             onClick={() => navigate('/login')}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
             style={{
               background: 'transparent', color: '#1A3D2B', fontSize: '14px',
               padding: '12px 28px', borderRadius: '10px',
-              border: '0.5px solid #B8C4BC', cursor: 'pointer'
+              border: '0.5px solid #B8C4BC', cursor: 'pointer',
             }}
-            className="hover:bg-cream-200 transition-colors"
           >
             Sign in
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
 
-        <p style={{ color: '#B8C4BC', fontSize: '12px', marginTop: '14px' }}>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          style={{ color: '#B8C4BC', fontSize: '12px', marginTop: '14px' }}
+        >
           No credit card required. Takes 2 minutes to set up.
-        </p>
+        </motion.p>
       </section>
 
-      {/* Stats bar */}
-      <section style={{ background: '#1A3D2B', padding: '24px' }}>
-        <div className="max-w-3xl mx-auto grid grid-cols-3 gap-4 text-center">
+      {/* Stats bar — animates in when scrolled into view */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeUp}
+        transition={{ duration: 0.5 }}
+        style={{ background: '#1A3D2B', padding: '24px' }}
+      >
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto grid grid-cols-3 gap-4 text-center"
+        >
           {[
             { number: '10+', label: 'Relocation steps' },
             { number: '6', label: 'Gov sources scraped' },
             { number: '100%', label: 'Free forever' },
           ].map((stat, i) => (
-            <div key={i} style={{
-              borderRight: i < 2 ? '0.5px solid #2A5C3E' : 'none',
-            }}>
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              style={{
+                borderRight: i < 2 ? '0.5px solid #2A5C3E' : 'none',
+              }}
+            >
               <p style={{ color: '#5DCAA5', fontSize: '24px', fontWeight: 500, margin: 0 }}>
                 {stat.number}
               </p>
               <p style={{ color: '#8FB89E', fontSize: '12px', margin: 0 }}>
                 {stat.label}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
-      {/* Features */}
+      {/* Features — each card animates in with stagger */}
       <section id="features" className="px-6 py-20 max-w-5xl mx-auto">
-        <div className="text-center mb-12">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={fadeUp}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
           <p style={{
             color: '#0F6E56', fontSize: '11px', fontWeight: 500,
-            textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 8px'
+            textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 8px',
           }}>
             Features
           </p>
           <h2 style={{ color: '#1A3D2B', fontSize: '28px', fontWeight: 500, margin: 0 }}>
             Everything you need to settle in Ireland
           </h2>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-4"
+        >
           {features.map((f, i) => (
-            <div key={i} style={{
-              background: '#fff', border: '0.5px solid #DDD8CC',
-              borderRadius: '16px', padding: '24px'
-            }}>
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              whileHover={{
+                y: -6,
+                boxShadow: '0 12px 32px rgba(26,61,43,0.10)',
+                borderColor: '#B8C4BC',
+              }}
+              transition={{ duration: 0.2 }}
+              style={{
+                background: '#fff', border: '0.5px solid #DDD8CC',
+                borderRadius: '16px', padding: '24px', cursor: 'default',
+              }}
+            >
               <div style={{
                 background: '#F7F3EB', width: '44px', height: '44px',
                 borderRadius: '12px', display: 'flex', alignItems: 'center',
-                justifyContent: 'center', marginBottom: '14px', fontSize: '20px'
+                justifyContent: 'center', marginBottom: '14px', fontSize: '20px',
               }}>
                 {f.icon}
               </div>
               <p style={{
                 color: '#0F6E56', fontSize: '11px', fontWeight: 500,
-                textTransform: 'uppercase', letterSpacing: '0.06em', margin: '0 0 6px'
+                textTransform: 'uppercase', letterSpacing: '0.06em', margin: '0 0 6px',
               }}>
                 {f.tag}
               </p>
-              <h3 style={{
-                color: '#1A3D2B', fontSize: '15px', fontWeight: 500,
-                margin: '0 0 8px'
-              }}>
+              <h3 style={{ color: '#1A3D2B', fontSize: '15px', fontWeight: 500, margin: '0 0 8px' }}>
                 {f.title}
               </h3>
               <p style={{ color: '#5A6B5E', fontSize: '13px', lineHeight: 1.6, margin: 0 }}>
                 {f.description}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
       {/* How it works */}
       <section id="how-it-works" style={{ background: '#1A3D2B' }} className="px-6 py-20">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeUp}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
+          >
             <p style={{
               color: '#5DCAA5', fontSize: '11px', fontWeight: 500,
-              textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 8px'
+              textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 8px',
             }}>
               How it works
             </p>
             <h2 style={{ color: '#F7F3EB', fontSize: '28px', fontWeight: 500, margin: 0 }}>
               Set up in minutes
             </h2>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          >
             {steps.map((step, i) => (
-              <div key={i} style={{ borderTop: '2px solid #2A5C3E', paddingTop: '20px' }}>
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                style={{ borderTop: '2px solid #2A5C3E', paddingTop: '20px' }}
+              >
                 <p style={{
                   color: '#5DCAA5', fontSize: '24px', fontWeight: 500,
-                  margin: '0 0 12px', fontFamily: 'monospace'
+                  margin: '0 0 12px', fontFamily: 'monospace',
                 }}>
                   {step.number}
                 </p>
-                <h3 style={{
-                  color: '#F7F3EB', fontSize: '15px', fontWeight: 500,
-                  margin: '0 0 8px'
-                }}>
+                <h3 style={{ color: '#F7F3EB', fontSize: '15px', fontWeight: 500, margin: '0 0 8px' }}>
                   {step.title}
                 </h3>
                 <p style={{ color: '#8FB89E', fontSize: '13px', lineHeight: 1.6, margin: 0 }}>
                   {step.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
-          <div className="text-center mt-12">
-            <button
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="text-center mt-12"
+          >
+            <motion.button
               onClick={() => navigate('/register')}
+              whileHover={{ scale: 1.03, boxShadow: '0 8px 24px rgba(93,202,165,0.3)' }}
+              whileTap={{ scale: 0.97 }}
               style={{
                 background: '#5DCAA5', color: '#0F2A1E', fontSize: '14px',
                 padding: '12px 28px', borderRadius: '10px', border: 'none',
-                fontWeight: 500, cursor: 'pointer'
+                fontWeight: 500, cursor: 'pointer',
               }}
-              className="hover:opacity-90 transition-opacity"
             >
               Get started free
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         </div>
       </section>
 
       {/* Powered by */}
-      <section className="px-6 py-12" style={{ borderBottom: '0.5px solid #DDD8CC' }}>
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeUp}
+        transition={{ duration: 0.5 }}
+        className="px-6 py-12"
+        style={{ borderBottom: '0.5px solid #DDD8CC' }}
+      >
         <div className="max-w-3xl mx-auto text-center">
           <p style={{
             color: '#B8C4BC', fontSize: '11px', marginBottom: '14px',
-            textTransform: 'uppercase', letterSpacing: '0.06em'
+            textTransform: 'uppercase', letterSpacing: '0.06em',
           }}>
             Powered by
           </p>
           <div className="flex flex-wrap justify-center gap-6">
             {['Groq Llama 3.1', 'Pinecone', 'citizensinformation.ie',
               'irishimmigration.ie', 'revenue.ie'].map((tech, i) => (
-                <span key={i} style={{
-                  color: '#7A8C7E', fontSize: '12px',
-                  fontWeight: 500
-                }}>
+                <motion.span
+                  key={i}
+                  whileHover={{ color: '#1A3D2B' }}
+                  style={{ color: '#7A8C7E', fontSize: '12px', fontWeight: 500 }}
+                >
                   {tech}
-                </span>
+                </motion.span>
               ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* FAQ */}
       <section id="faq" className="px-6 py-20 max-w-3xl mx-auto">
-        <div className="text-center mb-12">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeUp}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
           <p style={{
             color: '#0F6E56', fontSize: '11px', fontWeight: 500,
-            textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 8px'
+            textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 8px',
           }}>
             FAQ
           </p>
           <h2 style={{ color: '#1A3D2B', fontSize: '28px', fontWeight: 500, margin: 0 }}>
             Common questions
           </h2>
-        </div>
+        </motion.div>
 
-        <div className="space-y-3">
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          className="space-y-3"
+        >
           {faqs.map((faq, i) => (
-            <div key={i} style={{
-              background: '#fff', border: '0.5px solid #DDD8CC',
-              borderRadius: '12px', padding: '20px'
-            }}>
+            <motion.div
+              key={i}
+              variants={fadeUp}
+              whileHover={{ borderColor: '#B8C4BC', y: -2 }}
+              transition={{ duration: 0.15 }}
+              style={{
+                background: '#fff', border: '0.5px solid #DDD8CC',
+                borderRadius: '12px', padding: '20px',
+              }}
+            >
               <p style={{
                 color: '#1A3D2B', fontSize: '14px', fontWeight: 500,
-                margin: '0 0 8px'
+                margin: '0 0 8px',
               }}>
                 {faq.q}
               </p>
               <p style={{ color: '#5A6B5E', fontSize: '13px', lineHeight: 1.6, margin: 0 }}>
                 {faq.a}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
       {/* CTA section */}
-      <section style={{ background: '#1A3D2B' }} className="px-6 py-20 text-center">
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeUp}
+        transition={{ duration: 0.5 }}
+        style={{ background: '#1A3D2B' }}
+        className="px-6 py-20 text-center"
+      >
         <div className="max-w-2xl mx-auto">
-          <div style={{ fontSize: '40px', marginBottom: '16px' }}>🇮🇪</div>
+          <motion.div
+            initial={{ scale: 0.5, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, type: 'spring' }}
+            style={{ fontSize: '40px', marginBottom: '16px' }}
+          >
+            🇮🇪
+          </motion.div>
           <h2 style={{
             color: '#F7F3EB', fontSize: '28px', fontWeight: 500,
-            margin: '0 0 12px', lineHeight: 1.3
+            margin: '0 0 12px', lineHeight: 1.3,
           }}>
             Céad Míle Fáilte
           </h2>
           <p style={{
             color: '#8FB89E', fontSize: '14px', lineHeight: 1.7,
-            margin: '0 0 28px'
+            margin: '0 0 28px',
           }}>
             A hundred thousand welcomes. Start your Irish journey today —
             your personalised roadmap is waiting.
           </p>
-          <button
+          <motion.button
             onClick={() => navigate('/register')}
+            whileHover={{ scale: 1.03, boxShadow: '0 8px 24px rgba(93,202,165,0.3)' }}
+            whileTap={{ scale: 0.97 }}
             style={{
               background: '#5DCAA5', color: '#0F2A1E', fontSize: '14px',
               padding: '12px 32px', borderRadius: '10px', border: 'none',
-              fontWeight: 500, cursor: 'pointer'
+              fontWeight: 500, cursor: 'pointer',
             }}
-            className="hover:opacity-90 transition-opacity"
           >
             Build my roadmap — it's free
-          </button>
+          </motion.button>
         </div>
-      </section>
+      </motion.section>
 
       {/* Footer */}
       <footer style={{ background: '#0F2A1E', padding: '24px' }}>
