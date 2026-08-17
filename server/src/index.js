@@ -7,6 +7,7 @@ const roadmapRoutes = require('./routes/roadmap');
 const assistantRoutes = require('./routes/assistant');
 const documentRoutes = require('./routes/documents');
 const { startReminderJob } = require('./cron/reminders');
+const communityRoutes = require('./routes/community');
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/roadmap', roadmapRoutes);
 app.use('/api/assistant', assistantRoutes);
 app.use('/api/documents', documentRoutes);
+app.use('/api/community', communityRoutes);
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Settle.ie API is running!' });

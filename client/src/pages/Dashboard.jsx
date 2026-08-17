@@ -101,6 +101,16 @@ export default function Dashboard() {
             Documents
           </button>
           <button
+            onClick={() => navigate('/community')}
+            className="text-sm font-medium"
+            style={{
+              color: '#5A6B5E', background: 'none',
+              border: 'none', cursor: 'pointer'
+            }}
+          >
+            Community
+          </button>
+          <button
             onClick={() => navigate('/assistant')}
             className="text-sm text-emerald-600 hover:text-emerald-700 font-medium"
           >

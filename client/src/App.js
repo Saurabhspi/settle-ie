@@ -9,6 +9,7 @@ import Dashboard from './pages/Dashboard';
 import Onboarding from './pages/Onboarding';
 import Assistant from './pages/Assistant';
 import Documents from './pages/Documents';
+import Community from './pages/Community';
 
 const ProtectedRoute = ({ children }) => {
   const { token } = useAuth();
@@ -48,6 +49,11 @@ function AppRoutes() {
         <Route path="/documents" element={
           <ProtectedRoute>
             <PageTransition><Documents /></PageTransition>
+          </ProtectedRoute>
+        } />
+        <Route path="/community" element={
+          <ProtectedRoute>
+            <PageTransition><Community /></PageTransition>
           </ProtectedRoute>
         } />
       </Routes>
