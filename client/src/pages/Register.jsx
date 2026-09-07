@@ -9,7 +9,7 @@ export default function Register() {
   const [form, setForm] = useState({
     full_name: '',
     email: '',
-    password: ''
+    password: '',
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -18,7 +18,6 @@ export default function Register() {
     e.preventDefault();
     setError('');
     setLoading(true);
-
     try {
       const res = await registerUser(form);
       login(res.data.user, res.data.token);
@@ -35,7 +34,7 @@ export default function Register() {
       style={{ background: '#F7F3EB' }}>
       <div style={{
         background: '#fff', borderRadius: '20px', padding: '40px',
-        width: '100%', maxWidth: '420px', border: '0.5px solid #DDD8CC'
+        width: '100%', maxWidth: '420px', border: '0.5px solid #DDD8CC',
       }}>
 
         {/* Logo */}
@@ -52,7 +51,7 @@ export default function Register() {
           color: '#1A3D2B', fontSize: '18px', fontWeight: 500,
           margin: '0 0 24px'
         }}>
-          Welcome back
+          Create your account
         </h2>
 
         {error && (
@@ -65,6 +64,27 @@ export default function Register() {
         )}
 
         <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label style={{
+              display: 'block', fontSize: '13px', color: '#5A6B5E',
+              marginBottom: '6px'
+            }}>
+              Full name
+            </label>
+            <input
+              type="text"
+              placeholder="Saurabh Anand"
+              style={{
+                width: '100%', border: '0.5px solid #DDD8CC', borderRadius: '10px',
+                padding: '11px 14px', fontSize: '13px', outline: 'none',
+                background: '#FDFBF7', boxSizing: 'border-box'
+              }}
+              value={form.full_name}
+              onChange={e => setForm({ ...form, full_name: e.target.value })}
+              required
+            />
+          </div>
+
           <div>
             <label style={{
               display: 'block', fontSize: '13px', color: '#5A6B5E',
@@ -95,7 +115,7 @@ export default function Register() {
             </label>
             <input
               type="password"
-              placeholder="Your password"
+              placeholder="At least 6 characters"
               style={{
                 width: '100%', border: '0.5px solid #DDD8CC', borderRadius: '10px',
                 padding: '11px 14px', fontSize: '13px', outline: 'none',
@@ -116,7 +136,7 @@ export default function Register() {
               border: 'none', cursor: 'pointer', opacity: loading ? 0.6 : 1
             }}
           >
-            {loading ? 'Starting up server, please wait...' : 'Sign in'}
+            {loading ? 'Starting up server, please wait...' : 'Create account'}
           </button>
         </form>
 
@@ -124,12 +144,12 @@ export default function Register() {
           textAlign: 'center', fontSize: '13px', color: '#7A8C7E',
           marginTop: '24px'
         }}>
-          Don't have an account?{' '}
-          <Link to="/register" style={{
+          Already have an account?{' '}
+          <Link to="/login" style={{
             color: '#0F6E56', fontWeight: 500,
             textDecoration: 'none'
           }}>
-            Create one
+            Sign in
           </Link>
         </p>
       </div>

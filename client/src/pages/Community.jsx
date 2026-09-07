@@ -43,22 +43,21 @@ export default function Community() {
     category: 'general',
   });
 
-  // Fetch tips
   useEffect(() => {
-    fetchTips();
+    const getTips = async () => {
+      setLoading(true);
+      try {
+        const res = await API.get(`/community?category=${activeCategory}`);
+        setTips(res.data);
+      } catch (err) {
+        console.error('Failed to fetch tips', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    getTips();
   }, [activeCategory]);
 
-  const fetchTips = async () => {
-    setLoading(true);
-    try {
-      const res = await API.get(`/community?category=${activeCategory}`);
-      setTips(res.data);
-    } catch (err) {
-      console.error('Failed to fetch tips', err);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   // Submit new tip
   const handleSubmit = async () => {
