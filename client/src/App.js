@@ -10,6 +10,7 @@ import Onboarding from './pages/Onboarding';
 import Assistant from './pages/Assistant';
 import Documents from './pages/Documents';
 import Community from './pages/Community';
+import VerifyEmail from './pages/VerifyEmail';
 
 const ProtectedRoute = ({ children }) => {
   const { token } = useAuth();
@@ -55,6 +56,9 @@ function AppRoutes() {
           <ProtectedRoute>
             <PageTransition><Community /></PageTransition>
           </ProtectedRoute>
+        } />
+        <Route path="/verify-email" element={
+          <PageTransition><VerifyEmail /></PageTransition>
         } />
       </Routes>
     </AnimatePresence>
