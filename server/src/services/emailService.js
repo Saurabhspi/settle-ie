@@ -1,7 +1,7 @@
-const Brevo = require('@getbrevo/brevo');
+const { TransactionalEmailsApi, SendSmtpEmail, ApiClient } = require('@getbrevo/brevo');
 require('dotenv').config();
 
-const apiInstance = new Brevo.TransactionalEmailsApi();
+const apiInstance = new TransactionalEmailsApi();
 apiInstance.authentications['api-key'].apiKey = process.env.BREVO_API_KEY;
 
 const sendVerificationEmail = async (userEmail, userName, verifyUrl) => {
