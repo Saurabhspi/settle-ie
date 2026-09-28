@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-route
 import { AnimatePresence } from 'framer-motion';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import PageTransition from './components/PageTransition';
+import InstallPrompt from './components/InstallPrompt';
 import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -70,6 +71,7 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <AppRoutes />
+        <InstallPrompt />
       </BrowserRouter>
     </AuthProvider>
   );
