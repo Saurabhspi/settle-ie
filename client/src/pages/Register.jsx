@@ -129,7 +129,7 @@ export default function Register() {
             </label>
             <input
               type="text"
-              placeholder="Saurabh Anand"
+              placeholder="NAME"
               style={{
                 width: '100%', border: '0.5px solid #DDD8CC',
                 borderRadius: '10px', padding: '11px 14px', fontSize: '13px',
