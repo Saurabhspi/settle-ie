@@ -37,7 +37,7 @@ export default function Login() {
         {/* Logo */}
         <div className="mb-8 text-center">
           <h1 style={{ color: '#1A3D2B', fontSize: '22px', fontWeight: 500, margin: 0 }}>
-            Settle.ie
+            Setlwise
           </h1>
           <p style={{ color: '#7A8C7E', fontSize: '13px', margin: '4px 0 0' }}>
             Your Irish relocation guide

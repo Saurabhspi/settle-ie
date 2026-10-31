@@ -48,7 +48,7 @@ const steps = [
 
 const faqs = [
   {
-    q: 'Is Settle.ie free?',
+    q: 'Is Setlwise free?',
     a: 'Yes, completely free. No credit card, no subscription.',
   },
   {
@@ -96,7 +96,7 @@ export default function Landing() {
       >
         <div className="flex items-center gap-2">
           <span style={{ color: '#1A3D2B', fontSize: '18px', fontWeight: 500 }}>
-            Settle.ie
+            Setlwise
           </span>
         </div>
         <div className="hidden md:flex items-center gap-8">
@@ -179,7 +179,7 @@ export default function Landing() {
             margin: '0 auto 32px', maxWidth: '520px',
           }}
         >
-          Settle.ie gives you a personalised relocation roadmap, an AI assistant
+          Setlwise gives you a personalised relocation roadmap, an AI assistant
           that answers questions about Irish bureaucracy, and a secure document
           vault — all completely free.
         </motion.p>
@@ -544,7 +544,7 @@ export default function Landing() {
       <footer style={{ background: '#0F2A1E', padding: '24px' }}>
         <div className="max-w-5xl mx-auto flex justify-between items-center flex-wrap gap-4">
           <span style={{ color: '#2A5C3E', fontSize: '13px', fontWeight: 500 }}>
-            Settle.ie
+            Setlwise
           </span>
           <p style={{ color: '#2A5C3E', fontSize: '12px', margin: 0 }}>
             Built with care for everyone moving to Ireland 🇮🇪

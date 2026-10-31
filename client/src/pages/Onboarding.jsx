@@ -74,7 +74,7 @@ export default function Onboarding() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-2xl font-semibold text-gray-900">
-            Settle.ie
+            Setlwise
           </h1>
           <p className="text-gray-500 text-sm mt-1">
             Let's personalise your Ireland roadmap
@@ -154,8 +154,8 @@ export default function Onboarding() {
                 <label
                   key={status.value}
                   className={`flex items-center gap-3 p-4 rounded-xl border cursor-pointer transition-all ${form.employment_status === status.value
-                      ? 'border-emerald-500 bg-emerald-50'
-                      : 'border-gray-200 hover:border-gray-300'
+                    ? 'border-emerald-500 bg-emerald-50'
+                    : 'border-gray-200 hover:border-gray-300'
                     }`}
                 >
                   <input
@@ -214,8 +214,8 @@ export default function Onboarding() {
             </p>
             <div className="space-y-4">
               <label className={`flex items-start gap-4 p-4 rounded-xl border cursor-pointer transition-all ${form.has_children
-                  ? 'border-emerald-500 bg-emerald-50'
-                  : 'border-gray-200 hover:border-gray-300'
+                ? 'border-emerald-500 bg-emerald-50'
+                : 'border-gray-200 hover:border-gray-300'
                 }`}>
                 <input
                   type="checkbox"
@@ -236,8 +236,8 @@ export default function Onboarding() {
               </label>
 
               <label className={`flex items-start gap-4 p-4 rounded-xl border cursor-pointer transition-all ${form.has_driving_licence
-                  ? 'border-emerald-500 bg-emerald-50'
-                  : 'border-gray-200 hover:border-gray-300'
+                ? 'border-emerald-500 bg-emerald-50'
+                : 'border-gray-200 hover:border-gray-300'
                 }`}>
                 <input
                   type="checkbox"

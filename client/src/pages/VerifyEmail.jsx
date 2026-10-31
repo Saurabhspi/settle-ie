@@ -51,7 +51,7 @@ export default function VerifyEmail() {
           color: '#1A3D2B', fontSize: '22px', fontWeight: 500,
           margin: '0 0 24px'
         }}>
-          Settle.ie
+          Setlwise
         </h1>
 
         {status === 'verifying' && (

@@ -21,7 +21,7 @@ export default function InstallPrompt() {
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
     if (outcome === 'accepted') {
-      console.log('User installed Settle.ie');
+      console.log('User installed Setlwise');
     }
     setDeferredPrompt(null);
     setShowPrompt(false);
@@ -70,7 +70,7 @@ export default function InstallPrompt() {
               color: '#1A3D2B', fontSize: '14px', fontWeight: 500,
               margin: '0 0 2px'
             }}>
-              Install Settle.ie
+              Install Setlwise
             </p>
             <p style={{ color: '#7A8C7E', fontSize: '12px', margin: 0 }}>
               Add to your home screen for quick access

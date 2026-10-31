@@ -124,7 +124,7 @@ export default function Community() {
       <nav style={{ background: '#F7F3EB', borderBottom: '0.5px solid #DDD8CC' }}
         className="px-6 py-4 flex justify-between items-center sticky top-0 z-10">
         <h1 style={{ color: '#1A3D2B', fontSize: '18px', fontWeight: 500, margin: 0 }}>
-          Settle.ie
+          Setlwise
         </h1>
         <div className="flex items-center gap-4">
           <button onClick={() => navigate('/dashboard')}
