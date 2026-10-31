@@ -21,7 +21,7 @@ app.use('/api/documents', documentRoutes);
 app.use('/api/community', communityRoutes);
 
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', message: 'Setlwise API is running!' });
+  res.json({ status: 'ok', message: 'Setup Ireland API is running!' });
 });
 
 const db = require('./db');

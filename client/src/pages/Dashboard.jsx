@@ -92,7 +92,7 @@ export default function Dashboard() {
 
       {/* Navbar */}
       <nav className="bg-white border-b border-gray-100 px-6 py-4 flex justify-between items-center sticky top-0 z-10">
-        <h1 className="text-lg font-semibold text-gray-900">Setlwise</h1>
+        <h1 className="text-lg font-semibold text-gray-900">Setup Ireland</h1>
         <div className="flex items-center gap-4">
           <button
             onClick={() => navigate('/documents')}

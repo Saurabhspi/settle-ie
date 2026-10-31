@@ -74,7 +74,7 @@ export default function Onboarding() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-2xl font-semibold text-gray-900">
-            Setlwise
+            Setup Ireland
           </h1>
           <p className="text-gray-500 text-sm mt-1">
             Let's personalise your Ireland roadmap

@@ -14,7 +14,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary,
   params: {
-    folder: 'setlwise-documents', // folder name in Cloudinary
+    folder: 'Setup Ireland-documents', // folder name in Cloudinary
     allowed_formats: ['jpg', 'jpeg', 'png', 'pdf'],
     resource_type: 'auto', // auto-detect image or pdf
     transformation: [{ quality: 'auto' }], // auto-optimise file size

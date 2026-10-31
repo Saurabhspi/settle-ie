@@ -5,8 +5,8 @@ const brevo = new BrevoClient({ apiKey: process.env.BREVO_API_KEY });
 
 const sendVerificationEmail = async (userEmail, userName, verifyUrl) => {
   await brevo.transactionalEmails.sendTransacEmail({
-    subject: 'Verify your Setlwise email address',
-    sender: { name: 'Setlwise', email: 'saurabhanand808@gmail.com' },
+    subject: 'Verify your Setup Ireland email address',
+    sender: { name: 'Setup Ireland', email: 'saurabhanand808@gmail.com' },
     to: [{ email: userEmail, name: userName }],
     htmlContent: `
       <!DOCTYPE html>
@@ -14,14 +14,14 @@ const sendVerificationEmail = async (userEmail, userName, verifyUrl) => {
       <body style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #f9fafb;">
         <div style="background: white; border-radius: 16px; padding: 32px; border: 1px solid #e5e7eb;">
           <div style="text-align: center; margin-bottom: 24px;">
-            <h1 style="color: #1A3D2B; font-size: 24px; margin: 0;">Setlwise</h1>
+            <h1 style="color: #1A3D2B; font-size: 24px; margin: 0;">Setup Ireland</h1>
             <p style="color: #6b7280; font-size: 14px; margin: 4px 0 0;">Your Irish relocation guide</p>
           </div>
           <h2 style="color: #1f2937; font-size: 18px; margin: 0 0 12px;">
             Hi ${userName}! Please verify your email
           </h2>
           <p style="color: #4b5563; font-size: 14px; line-height: 1.6; margin: 0 0 24px;">
-            Thanks for signing up to Setlwise. Click the button below to verify
+            Thanks for signing up to Setup Ireland. Click the button below to verify
             your email address. This link expires in 24 hours.
           </p>
           <div style="text-align: center; margin-bottom: 24px;">
@@ -46,7 +46,7 @@ const sendVerificationEmail = async (userEmail, userName, verifyUrl) => {
 const sendWelcomeEmail = async (userEmail, userName) => {
   await brevo.transactionalEmails.sendTransacEmail({
     subject: `Céad Míle Fáilte, ${userName}! 🇮🇪`,
-    sender: { name: 'Setlwise', email: 'saurabhanand808@gmail.com' },
+    sender: { name: 'Setup Ireland', email: 'saurabhanand808@gmail.com' },
     to: [{ email: userEmail, name: userName }],
     htmlContent: `
       <!DOCTYPE html>
@@ -54,7 +54,7 @@ const sendWelcomeEmail = async (userEmail, userName) => {
       <body style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #f9fafb;">
         <div style="background: white; border-radius: 16px; padding: 32px; border: 1px solid #e5e7eb;">
           <div style="text-align: center; margin-bottom: 24px;">
-            <h1 style="color: #1A3D2B; font-size: 24px; margin: 0;">Setlwise</h1>
+            <h1 style="color: #1A3D2B; font-size: 24px; margin: 0;">Setup Ireland</h1>
             <p style="color: #6b7280; font-size: 14px; margin: 4px 0 0;">Your Irish relocation guide</p>
           </div>
           <h2 style="color: #1f2937; font-size: 20px; margin: 0 0 12px;">
@@ -94,7 +94,7 @@ const sendDeadlineReminder = async (userEmail, userName, stepTitle, dueDate, day
 
   await brevo.transactionalEmails.sendTransacEmail({
     subject: `${urgencyText}: ${stepTitle} due in ${daysLeft} days`,
-    sender: { name: 'Setlwise', email: 'saurabhanand808@gmail.com' },
+    sender: { name: 'Setup Ireland', email: 'saurabhanand808@gmail.com' },
     to: [{ email: userEmail, name: userName }],
     htmlContent: `
       <!DOCTYPE html>
@@ -102,7 +102,7 @@ const sendDeadlineReminder = async (userEmail, userName, stepTitle, dueDate, day
       <body style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #f9fafb;">
         <div style="background: white; border-radius: 16px; padding: 32px; border: 1px solid #e5e7eb;">
           <div style="text-align: center; margin-bottom: 24px;">
-            <h1 style="color: #1A3D2B; font-size: 24px; margin: 0;">Setlwise</h1>
+            <h1 style="color: #1A3D2B; font-size: 24px; margin: 0;">Setup Ireland</h1>
           </div>
           <div style="background: ${urgencyColor}15; border-left: 4px solid ${urgencyColor}; padding: 12px 16px; margin-bottom: 24px;">
             <p style="color: ${urgencyColor}; font-weight: bold; margin: 0; font-size: 14px;">
